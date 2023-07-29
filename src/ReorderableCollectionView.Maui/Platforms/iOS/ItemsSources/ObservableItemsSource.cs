@@ -307,5 +307,10 @@ namespace ReorderableCollectionView.Maui
 				CollectionViewUpdated?.Invoke(this, args);
 			});
 		}
-	}
+
+        public IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath)
+        {
+			return null;
+        }
+    }
 }

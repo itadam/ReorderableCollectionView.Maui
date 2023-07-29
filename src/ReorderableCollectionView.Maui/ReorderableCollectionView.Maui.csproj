@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
+		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net7.0-windows10.0.19041</TargetFrameworks>
 		<UseMaui>true</UseMaui>
+		<UseMauiEssentials>true</UseMauiEssentials>
 		<SingleProject>true</SingleProject>
 
-		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-ios'">14.2</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">14.0</SupportedOSPlatformVersion>
-		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-ios'))">14.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-ios'))">13</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-maccatalyst'))">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-android'))">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
@@ -17,13 +19,13 @@
 		<AssemblyName>ReorderableCollectionView.Maui</AssemblyName>
 		<RootNamespace>ReorderableCollectionView.Maui</RootNamespace>
 		<PackageId>ReorderableCollectionView.Maui</PackageId>
-		<Version>1.0.0-preview.11.2349</Version>
-		<Authors>Bill Venhaus</Authors>
+		<Version>1.0.0-preview.11.2350</Version>
+		<Authors>Adam M</Authors>
 		<Description>ReorderableCollectionView for .NET MAUI</Description>
-		<Copyright>Copyright 2022</Copyright>
+		<Copyright>Copyright 2023</Copyright>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/billvenhaus/ReorderableCollectionView.Maui</PackageProjectUrl>
-		<RepositoryUrl>https://github.com/billvenhaus/ReorderableCollectionView.Maui</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/itadam/ReorderableCollectionView.Maui</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/itadam/ReorderableCollectionView.Maui</RepositoryUrl>
 		<PackageTags>maui reorderablecollectionview collectionview reorderablecollectionview.maui xamarin forms</PackageTags>
 	</PropertyGroup>
 

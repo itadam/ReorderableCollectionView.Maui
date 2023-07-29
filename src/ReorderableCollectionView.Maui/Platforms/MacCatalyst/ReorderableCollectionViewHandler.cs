@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.Maui.Controls.Handlers.Items;
-using Microsoft.Maui.Essentials;
+using Microsoft.Maui.Devices;
 using Microsoft.Maui.Graphics;
 
 namespace ReorderableCollectionView.Maui

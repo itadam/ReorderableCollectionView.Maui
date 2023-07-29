@@ -34,5 +34,10 @@ namespace ReorderableCollectionView.Maui
 		public void Dispose()
 		{
 		}
-	}
+
+        public IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath)
+        {
+            throw new IndexOutOfRangeException("IItemsViewSource is empty");
+        }
+    }
 }

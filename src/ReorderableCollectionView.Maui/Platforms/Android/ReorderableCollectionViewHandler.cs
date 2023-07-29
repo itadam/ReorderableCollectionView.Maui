@@ -8,12 +8,12 @@ namespace ReorderableCollectionView.Maui
 	{
 		new protected ReorderableCollectionViewAdapter<ReorderableCollectionView, IGroupableItemsViewSource> CreateAdapter() => new(VirtualView);
 
-		protected override RecyclerView CreateNativeView() =>
+		protected override RecyclerView CreatePlatformView() =>
 			new ReorderableMauiRecyclerView<ReorderableCollectionView, ReorderableCollectionViewAdapter<ReorderableCollectionView, IGroupableItemsViewSource>, IGroupableItemsViewSource>(Context, GetItemsLayout, CreateAdapter);
 
-		public static void MapCanReorderItems(ReorderableCollectionViewHandler handler, ReorderableCollectionView itemsView)
+        public static void MapCanReorderItems(ReorderableCollectionViewHandler handler, ReorderableCollectionView itemsView)
 		{
-			(handler.NativeView as IReorderableMauiRecyclerView<ReorderableCollectionView>)?.UpdateCanReorderItems();
+			(handler.PlatformView as IReorderableMauiRecyclerView<ReorderableCollectionView>)?.UpdateCanReorderItems();
 		}
 	}
 }

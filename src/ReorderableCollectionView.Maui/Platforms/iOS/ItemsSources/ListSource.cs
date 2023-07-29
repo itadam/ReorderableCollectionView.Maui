@@ -148,5 +148,10 @@ namespace ReorderableCollectionView.Maui
 		{
 			return _itemsSource.GetEnumerator();
 		}
-	}
+
+        public IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath)
+        {
+			return null;
+        }
+    }
 }

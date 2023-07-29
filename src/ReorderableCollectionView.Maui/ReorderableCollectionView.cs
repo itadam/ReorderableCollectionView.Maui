@@ -28,7 +28,7 @@ namespace ReorderableCollectionView.Maui
 			set { SetValue(CanReorderItemsProperty, value); }
 		}
 
-		public event EventHandler ReorderCompleted;
+		public new event EventHandler ReorderCompleted;
 
 		void HandleCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
 		{
@@ -96,8 +96,7 @@ namespace ReorderableCollectionView.Maui
 			{
 				if (!IsPlatformEnabled)
 					return new SizeRequest(new Size(-1, -1));
-
-				return Device.PlatformServices.GetNativeSize(this, widthConstraint, heightConstraint);
+				return new SizeRequest(new Size(widthConstraint, heightConstraint));
 			}
 			else
 			{
@@ -120,6 +119,6 @@ namespace ReorderableCollectionView.Maui
 		}
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public void SendReorderCompleted() => ReorderCompleted?.Invoke(this, EventArgs.Empty);
+		public new void SendReorderCompleted() => ReorderCompleted?.Invoke(this, EventArgs.Empty);
 	}
 }

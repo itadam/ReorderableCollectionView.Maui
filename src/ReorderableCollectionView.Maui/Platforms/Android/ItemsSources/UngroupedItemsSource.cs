@@ -36,7 +36,22 @@ namespace ReorderableCollectionView.Maui
 			_source.Dispose();
 		}
 
-		public object GetItem(int position)
+        public object GetGroup(int groupIndex)
+        {
+			return null;
+        }
+
+        public (int group, int index) GetGroupAndIndex(int position)
+        {
+			return (0, 0);
+        }
+
+        public IItemsViewSource GetGroupItemsViewSource(int groupIndex)
+        {
+			return null;
+        }
+
+        public object GetItem(int position)
 		{
 			return _source.GetItem(position);
 		}
