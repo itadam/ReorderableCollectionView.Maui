@@ -6,6 +6,6 @@ namespace ReorderableCollectionView.Maui
 	public interface IReorderableMauiRecyclerView<TItemsView> : IMauiRecyclerView<TItemsView>
 		where TItemsView : ItemsView
 	{
-		void UpdateCanReorderItems();
+        new void UpdateCanReorderItems();
 	}
 }

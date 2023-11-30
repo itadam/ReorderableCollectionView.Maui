@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Specialized;
+using Microsoft.Maui.ApplicationModel;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Handlers.Items;
 
@@ -101,9 +102,9 @@ namespace ReorderableCollectionView.Maui
 				return;
 			}
 
-			if (Device.IsInvokeRequired)
+			if (Application.Current?.MainPage?.Dispatcher.IsDispatchRequired ?? false)
 			{
-				Device.BeginInvokeOnMainThread(() => CollectionChanged(args));
+				MainThread.BeginInvokeOnMainThread(() => CollectionChanged(args));
 			}
 			else
 			{

@@ -14,15 +14,15 @@ namespace ReorderableCollectionView.Maui
 		INotifyCollectionChanged _notifyCollection;
 		IItemsLayout _itemsLayout;
 
-		public static readonly BindableProperty CanMixGroupsProperty = BindableProperty.Create("CanMixGroups", typeof(bool), typeof(ReorderableCollectionView), false);
-		public bool CanMixGroups
+		public static new readonly BindableProperty CanMixGroupsProperty = BindableProperty.Create("CanMixGroups", typeof(bool), typeof(ReorderableCollectionView), false);
+		public new bool CanMixGroups
 		{
 			get { return (bool)GetValue(CanMixGroupsProperty); }
 			set { SetValue(CanMixGroupsProperty, value); }
 		}
 
-		public static readonly BindableProperty CanReorderItemsProperty = BindableProperty.Create("CanReorderItems", typeof(bool), typeof(ReorderableCollectionView), false);
-		public bool CanReorderItems
+		public static new readonly BindableProperty CanReorderItemsProperty = BindableProperty.Create("CanReorderItems", typeof(bool), typeof(ReorderableCollectionView), false);
+		public new bool CanReorderItems
 		{
 			get { return (bool)GetValue(CanReorderItemsProperty); }
 			set { SetValue(CanReorderItemsProperty, value); }

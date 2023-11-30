@@ -7,6 +7,7 @@ using ObjCRuntime;
 using UIKit;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Handlers.Items;
+using Microsoft.Maui.ApplicationModel;
 
 // Cloned from the main .NET MAUI repository.
 // Modified to include implementation of interfaces IObservableItemsViewSource & IGroupedItemsViewSource.
@@ -149,9 +150,9 @@ namespace ReorderableCollectionView.Maui
 				return;
 			}
 
-			if (Device.IsInvokeRequired)
-			{
-				Device.BeginInvokeOnMainThread(() => CollectionChanged(args));
+            if (Application.Current?.MainPage?.Dispatcher.IsDispatchRequired ?? false)
+            {
+				MainThread.BeginInvokeOnMainThread(() => CollectionChanged(args));
 			}
 			else
 			{

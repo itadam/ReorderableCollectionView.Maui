@@ -5,6 +5,6 @@ namespace ReorderableCollectionView.Maui
 {
 	public interface IGroupedItemsViewSource : IItemsViewSource
 	{
-		IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath);
+        new IItemsViewSource GroupItemsViewSource(NSIndexPath indexPath);
 	}
 }

@@ -116,7 +116,7 @@ namespace ReorderableCollectionView.Maui
 			_itemTouchHelperCallback?.SetAdapter(ItemsViewAdapter as IItemTouchHelperAdapter);
 		}
 
-		public void UpdateCanReorderItems()
+		public override void UpdateCanReorderItems()
 		{
 			var canReorderItems = (ItemsView as ReorderableCollectionView)?.CanReorderItems == true;
 

@@ -5,8 +5,8 @@ namespace ReorderableCollectionView.Maui
 {
 	public interface IGroupedItemsViewSource : IGroupableItemsViewSource
 	{
-		(int, int) GetGroupAndIndex(int position);
-		object GetGroup(int groupIndex);
-		IItemsViewSource GetGroupItemsViewSource(int groupIndex);
+        new (int, int) GetGroupAndIndex(int position);
+        new object GetGroup(int groupIndex);
+        new IItemsViewSource GetGroupItemsViewSource(int groupIndex);
 	}
 }
