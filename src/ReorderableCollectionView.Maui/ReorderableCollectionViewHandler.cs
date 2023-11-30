@@ -1,12 +1,18 @@
 ﻿using Microsoft.Maui;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Handlers.Items;
 using Controls = Microsoft.Maui.Controls;
 
 namespace ReorderableCollectionView.Maui
 {
 	public partial class ReorderableCollectionViewHandler
-	{
-		public ReorderableCollectionViewHandler() : base(ReorderableCollectionViewMapper)
+#if !(ANDROID || IOS || MACCATALYST || WINDOWS)
+		:
+        GroupableItemsViewHandler<ReorderableCollectionView>
+#endif
+
+    {
+        public ReorderableCollectionViewHandler() : base(ReorderableCollectionViewMapper)
 		{
 
 		}
@@ -30,7 +36,9 @@ namespace ReorderableCollectionView.Maui
 			[StructuredItemsView.FooterTemplateProperty.PropertyName] = MapFooterTemplate,
 			[StructuredItemsView.ItemsLayoutProperty.PropertyName] = MapItemsLayout,
 			[StructuredItemsView.ItemSizingStrategyProperty.PropertyName] = MapItemSizingStrategy,
-			[ReorderableCollectionView.CanReorderItemsProperty.PropertyName] = MapCanReorderItems,
+#if ANDROID || IOS || MACCATALYST || WINDOWS
+            [ReorderableCollectionView.CanReorderItemsProperty.PropertyName] = MapCanReorderItems,
+#endif
 			//[SelectableItemsView.SelectedItemProperty.PropertyName] = MapSelectedItem,
 			//[SelectableItemsView.SelectedItemsProperty.PropertyName] = MapSelectedItems,
 			//[SelectableItemsView.SelectionModeProperty.PropertyName] = MapSelectionMode,

@@ -1,16 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks>net7.0;net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net7.0-windows10.0.19041</TargetFrameworks>
 		<UseMaui>true</UseMaui>
-		<UseMauiEssentials>true</UseMauiEssentials>
 		<SingleProject>true</SingleProject>
 
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-ios'))">14.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-ios'))">13</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-maccatalyst'))">14.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-android'))">21.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-android'))">33</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
 	</PropertyGroup>
@@ -19,7 +19,7 @@
 		<AssemblyName>ReorderableCollectionView.Maui</AssemblyName>
 		<RootNamespace>ReorderableCollectionView.Maui</RootNamespace>
 		<PackageId>ReorderableCollectionView.Maui</PackageId>
-		<Version>1.0.0-preview.11.2350</Version>
+		<Version>1.0.0-preview.11.5000</Version>
 		<Authors>Adam M</Authors>
 		<Description>ReorderableCollectionView for .NET MAUI</Description>
 		<Copyright>Copyright 2023</Copyright>
@@ -27,6 +27,7 @@
 		<PackageProjectUrl>https://github.com/itadam/ReorderableCollectionView.Maui</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/itadam/ReorderableCollectionView.Maui</RepositoryUrl>
 		<PackageTags>maui reorderablecollectionview collectionview reorderablecollectionview.maui xamarin forms</PackageTags>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 </Project>
